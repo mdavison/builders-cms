@@ -1,0 +1,55 @@
+/* COLOR PALETTE
+-------------------------------------------------- */
+/* Logo Green: #183f1d */
+
+
+body {
+    background-color: #bfbfbf;
+}
+
+a {
+    color: #616c96;
+}
+
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+.navbar-default {
+    background-color: #bfbfbf;
+    border: none;
+}
+.nav > li > a {
+    font-weight: bold;
+    border-bottom: 5px solid transparent;
+}
+.navbar-brand {
+    margin-bottom: 75px;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .active > a {
+
+    background: none;
+    border-color: #fff;
+}
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .active > a:hover {
+    background-color: #fff;
+    background: none;
+    border-color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+
+    background: none;
+    border-color: #eaeaea;
+}
+.navbar-right li a {
+    margin-top: 55px;
+}
+
+/* FORMS
+-------------------------------------------------- */
+/* honeypot type spam catcher */
+form #last-name {
+    display:none;
+}

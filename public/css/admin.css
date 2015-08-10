@@ -1,0 +1,59 @@
+/*
+ FLASH MESSAGE
+ */
+.flash-message {
+    padding: 15px;
+}
+
+/*
+ MODAL
+ */
+.modal-header {
+    padding-bottom: 30px;
+}
+.modal-body {
+    text-align: center;
+}
+
+#photoModal .modal-body {
+    position: relative;
+    text-align: center;
+    padding: 0 0 56.25% 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+#photoModal .modal-body img
+{
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+@media screen and (min-width: 768px) {
+    #photoModal .modal-dialog {
+        right: auto;
+        left: auto;
+        width: auto;
+        max-width: 900px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+/*
+Image Thumbnail
+*/
+.thumbnail {
+    background: lightgray;
+    padding: 15px 0;
+}
+.caption {
+    text-align: center;
+    font-weight: bold;
+}
