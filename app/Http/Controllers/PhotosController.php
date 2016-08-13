@@ -38,7 +38,9 @@ class PhotosController extends Controller {
 	public function create()
 	{
 		// Get galleries options
-        $galleries = Gallery::lists('name', 'id');
+        // Upgrade to 5.1 -> lists() now returns a Collection, so using all()
+        // to return a plain array for now
+        $galleries = Gallery::lists('name', 'id')->all();
         if ( empty($galleries))
         {
             return redirect('photos')->with('error', 'You must first create a gallery before adding any photos.');
@@ -129,7 +131,7 @@ class PhotosController extends Controller {
 		$photo = Photo::findOrFail($id);
 
         // Get galleries options
-        $galleries = Gallery::lists('name', 'id');
+        $galleries = Gallery::lists('name', 'id')->all();
 
         return view('photos.edit', compact('photo', 'galleries'));
 	}
