@@ -57,7 +57,7 @@ class GalleriesController extends Controller {
         $gallery->name = $request->get('name');
         $gallery->slug = Str::slug($request->get('name'));
         $gallery->link_token = str_random(10);
-        $gallery->client = 1; // Comment this line if you need to re-create an internal gallery
+        $gallery->client = $request->get('type') == 'client' ? 1 : 0;
 
         $gallery->save();
 
@@ -108,6 +108,7 @@ class GalleriesController extends Controller {
         $gallery = Gallery::find($id);
         $gallery->name = $request->get('name');
         $gallery->slug = Str::slug($request->get('name'));
+        $gallery->client = $request->get('type') == 'client' ? 1 : 0;
 
         $gallery->update();
 

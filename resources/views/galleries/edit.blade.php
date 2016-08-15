@@ -9,11 +9,14 @@
     {!! Form::model($gallery, ['route' => ['galleries.update', $gallery->id], 'method' => 'PATCH']) !!}
 
     <div class="form-group">
-        {!! Form::label('name', 'Client Name: ') !!}
+        <?php $type = $gallery->client == 1 ? 'client' : 'public'; ?>
+        {!! Form::select('type', array('client' => 'Client', 'public' => 'Public'), $type); !!}
+    </div>
 
-        @if($gallery->slug === 'carousel' OR
-            $gallery->slug === 'interior' OR
-            $gallery->slug === 'exterior')
+    <div class="form-group">
+        {!! Form::label('name', 'Gallery Name: ') !!}
+
+        @if($gallery->slug === 'carousel')
             {!! Form::text('name', null, ['class' => 'form-control', 'disabled']) !!}
         @else
             {!! Form::text('name', null, ['class' => 'form-control']) !!}

@@ -56,7 +56,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Galleries <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/galleries">All Galleries</a></li>
-                        <li><a href="/galleries/create">Create New Client Gallery</a></li>
+                        <li><a href="/galleries/create">Create New Gallery</a></li>
                     </ul>
                 </li>
                 <li class="dropdown {{ Request::is('users') ? 'active' : '' }}">

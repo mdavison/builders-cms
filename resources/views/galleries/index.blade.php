@@ -13,24 +13,24 @@
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        @if ( $gallery->client)
-                            <a href="#"
-                               title="Click to change name"
-                               class="x-editable bootstrap-tooltip"
-                               data-type="text"
-                               data-pk="{{ $gallery->id }}"
-                               data-url="/galleries/{{$gallery->id}}/update-ajax"
-                               data-name="name">
-                                    {{ $gallery->name }}
-                            </a>
-                        @else
-                            {{ $gallery->name }}
-                        @endif
+                        <a href="#"
+                           title="Click to change name"
+                           class="x-editable bootstrap-tooltip"
+                           data-type="text"
+                           data-pk="{{ $gallery->id }}"
+                           data-url="/galleries/{{$gallery->id}}/update-ajax"
+                           data-name="name">
+                                {{ $gallery->name }}
+                        </a>
                     </h3>
                 </div>
                 <div class="panel-body">
                     <a href="/galleries/{{$gallery->link_token}}" class="btn btn-default">
                         <span class="glyphicon glyphicon-picture" aria-hidden="true"></span> View
+                    </a>
+
+                    <a href="/galleries/{{$gallery->id}}/edit" class="btn btn-default">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Edit
                     </a>
 
                     <a href="/galleries/{{$gallery->id}}/sort" class="btn btn-default">
@@ -41,16 +41,16 @@
                         <a href="/galleries/{{$gallery->link_token}}" class="btn btn-default bootbox-share">
                             <span class="glyphicon glyphicon-share" aria-hidden="true"></span> Share Link
                         </a>
-
-
-                        {!! Form::open(array('method' => 'DELETE',
-                                             'route' => array('galleries.destroy', $gallery->id),
-                                             'class' => 'bootbox-confirm pull-right')) !!}
-                            <button type="submit" class="btn btn-danger">
-                                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
-                            </button>
-                        {!! Form::close() !!}
                     @endif
+
+                    {!! Form::open(array('method' => 'DELETE',
+                                         'route' => array('galleries.destroy', $gallery->id),
+                                         'class' => 'bootbox-confirm pull-right')) !!}
+                        <button type="submit" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                        </button>
+                    {!! Form::close() !!}
+                    
                 </div>
             </div>
         @endforeach
@@ -90,7 +90,7 @@
 
         $(".bootbox-share").click(function(e){
             e.preventDefault();
-            var message = "<strong>Copy this link to share a gallery:</strong><hr>" + e.target.href;
+            var message = "<strong>Copy this link to share a client gallery:</strong><hr>" + e.target.href;
             bootbox.alert(message, function() {
                 //console.log(e.target.href);
             });

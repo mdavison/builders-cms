@@ -4,6 +4,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Photo;
+use App\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -34,20 +35,33 @@ class PagesController extends Controller {
     public function gallery()
     {
         // get gallery with slug 'interior'
-        $interior_photos = Photo::whereHas('gallery', function($q)
-        {
-            $q->where('slug', '=', 'interior');
+        // $interior_photos = Photo::whereHas('gallery', function($q)
+        // {
+        //     $q->where('slug', '=', 'interior');
 
-        })->orderBy('display_order', 'ASC')->get();
+        // })->orderBy('display_order', 'ASC')->get();
 
-        // get gallery with slug 'exterior'
-        $exterior_photos = Photo::whereHas('gallery', function($q)
-        {
-            $q->where('slug', '=', 'exterior');
+        // // get gallery with slug 'exterior'
+        // $exterior_photos = Photo::whereHas('gallery', function($q)
+        // {
+        //     $q->where('slug', '=', 'exterior');
 
-        })->orderBy('display_order', 'ASC')->get();
+        // })->orderBy('display_order', 'ASC')->get();
 
-        return view('gallery', compact('interior_photos', 'exterior_photos'));
+        // return view('gallery', compact('interior_photos', 'exterior_photos'));
+
+        //$photos = Photo::where('client', 1);
+        
+        // $photos = Photo::whereHas('gallery', function($q) {
+        //     $q->where('client', 1);
+        // })->orderBy('display_order', 'ASC')->get();
+
+        $galleries = Gallery::where('client', 0)->get();
+        //$galleries = Gallery::all();
+
+        //dd($galleries);
+
+        return view('gallery', compact('galleries'));
     }
 
     /**

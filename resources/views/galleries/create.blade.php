@@ -2,14 +2,18 @@
 
 @section('content')
 
-    <h1 class="page-header">Create a new client gallery</h1>
+    <h1 class="page-header">Create a new gallery</h1>
 
     @include('layouts.partials.flash-message')
 
     {!! Form::open(['route' => 'galleries.store']) !!}
 
     <div class="form-group">
-        {!! Form::label('name', 'Client Name: ') !!}
+        {!! Form::select('type', array('client' => 'Client', 'public' => 'Public'), 'public'); !!}
+    </div>
+
+    <div class="form-group">
+        {!! Form::label('name', 'Gallery Name: ') !!}
         {!! Form::text('name', null, ['class' => 'form-control', 'autofocus']) !!}
         {!! $errors->first('name', '<span class="text-danger">:message</span>') !!}
     </div>

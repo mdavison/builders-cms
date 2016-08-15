@@ -40,7 +40,7 @@
     </div>
 
 
-    @if(count($interior_photos))
+    @if(isset($interior_photos) && count($interior_photos))
         <h3>Interior</h3>
 
         <div class="row">
@@ -63,7 +63,7 @@
         </div>
     @endif
 
-    @if(count($exterior_photos))
+    @if(isset($exterior_photos) && count($exterior_photos))
         <h3>Exterior</h3>
 
         <div class="row">
@@ -83,6 +83,25 @@
                 </div>
             @endforeach
         </div>
+    @endif
+
+    @if(isset($galleries) && count($galleries))
+        @foreach ($galleries as $gallery)
+            @if (count($gallery->photos))
+                <h3>{{ $gallery->name }}</h3>
+                <div class="row">
+                @foreach ($gallery->photos as $photo)
+                    <div class="col-lg-2 col-md-2 col-sm-4 col-xs-12">
+                        <div class="thumbnail">
+                            <a href="/galleryphotos/{{ $photo->filename }}" data-gallery>
+                                <img src="/galleryphotos/thumbnails/{{ $photo->filename }}" class="img-responsive" alt="" width="170px">
+                            </a>
+                        </div>
+                    </div>
+                @endforeach
+                </div>
+            @endif
+        @endforeach
     @endif
 @stop
 
