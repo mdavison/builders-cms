@@ -18,7 +18,7 @@ class PagesController extends Controller {
      */
     public function index()
     {
-        $photos = Photo::where('carousel', 1)->get();
+        $photos = Photo::where('carousel', 1)->orderBy('carousel_display_order', 'ASC')->get();
 
         return view('index', ['photos' => $photos, 'counter' => 0]);
     }
@@ -30,32 +30,7 @@ class PagesController extends Controller {
      */
     public function gallery()
     {
-        // get gallery with slug 'interior'
-        // $interior_photos = Photo::whereHas('gallery', function($q)
-        // {
-        //     $q->where('slug', '=', 'interior');
-
-        // })->orderBy('display_order', 'ASC')->get();
-
-        // // get gallery with slug 'exterior'
-        // $exterior_photos = Photo::whereHas('gallery', function($q)
-        // {
-        //     $q->where('slug', '=', 'exterior');
-
-        // })->orderBy('display_order', 'ASC')->get();
-
-        // return view('gallery', compact('interior_photos', 'exterior_photos'));
-
-        //$photos = Photo::where('client', 1);
-        
-        // $photos = Photo::whereHas('gallery', function($q) {
-        //     $q->where('client', 1);
-        // })->orderBy('display_order', 'ASC')->get();
-
         $galleries = Gallery::where('client', 0)->get();
-        //$galleries = Gallery::all();
-
-        //dd($galleries);
 
         return view('gallery', compact('galleries'));
     }

@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1 class="page-header">Sort Photos in {{ $gallery->name }} Gallery</h1>
+    <h1 class="page-header">Manage Carousel Photos</h1>
 
     @include('layouts.partials.flash-message')
 
@@ -24,5 +24,6 @@
 
 
 @include('layouts.partials.js-photo-sort-styles')
+
 
 @include('layouts.partials.js-photo-sort')

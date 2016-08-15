@@ -183,4 +183,40 @@ class PhotosController extends Controller {
 
 	}
 
+    /**
+     * Show all the photos in the Carousel
+     *
+     * @return Response
+     */
+    public function carousel()
+    {
+        $photos = Photo::where('carousel', 1)->orderBy('carousel_display_order')->get();
+
+        return view('photos.carousel', compact('photos'));
+    }
+
+    /**
+     * Handle ajax post request to update display_order
+     *
+     * @param Request $request
+     * @return string
+     */
+    public function postCarousel(Request $request)
+    {
+        $photo_ids = explode(',', $request->get('ids'));
+        $sort_order_counter = 1;
+        foreach ($photo_ids as $id) {
+            $id = intval($id);
+            if (!empty($id)) {
+                $photo = Photo::find($id);
+                $photo->carousel_display_order = $sort_order_counter;
+                $photo->save();
+
+                $sort_order_counter++;
+            }
+        }
+
+        return 'true';
+    }
+
 }

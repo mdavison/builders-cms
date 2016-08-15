@@ -35,7 +35,10 @@ Route::get('admin', 'AdminController@index');
 Route::resource('users', 'UsersController');
 Route::get('/users/{id}/restore', 'UsersController@restore');
 
+Route::get('photos/carousel', 'PhotosController@carousel');
+Route::post('photos/carousel', 'PhotosController@postCarousel');
 Route::resource('photos', 'PhotosController');
+
 Route::resource('galleries', 'GalleriesController');
 Route::get('galleries/{id}/sort', 'GalleriesController@sort');
 Route::post('galleries/{id}/sort', 'GalleriesController@postSort');

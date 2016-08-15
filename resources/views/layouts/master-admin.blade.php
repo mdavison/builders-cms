@@ -49,6 +49,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Photos <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/photos">All Photos</a></li>
+                        <li><a href="/photos/carousel">Carousel</a></li>
                         <li><a href="/photos/create">Upload Photo</a></li>
                     </ul>
                 </li>
