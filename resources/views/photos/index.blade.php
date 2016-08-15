@@ -4,6 +4,8 @@
 
     <h1 class="page-header">All Photos</h1>
 
+    <p class="align-right"><span class="glyphicon glyphicon-picture"></span> Carousel</p>
+
     @include('layouts.partials.flash-message')
 
     @if(count($photos))
@@ -20,6 +22,10 @@
 
                     <div class="caption">
                         {{ $photo->gallery->name }}
+
+                        @if($photo->carousel)
+                            <p class="pull-right"><span class="glyphicon glyphicon-picture"></span></p>
+                        @endif
                     </div><!-- /.caption -->
                 </div><!-- /.thumbnail -->
             </div>

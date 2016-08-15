@@ -19,7 +19,7 @@ class CreateActivitiesTable extends Migration {
             $table->string('subject_type')->index();
             $table->string('name');
             $table->integer('user_id')->index();
-			$table->timestamps();
+			$table->nullableTimestamps();
 		});
 	}
 

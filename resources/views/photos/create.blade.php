@@ -20,6 +20,12 @@
         {!! $errors->first('gallery', '<span class="text-danger">:message</span>') !!}
     </div>
 
+    <div class="checkbox">
+        <label>
+            {!! Form::checkbox('carousel', '1'); !!} In Carousel
+        </label>
+    </div>
+
     {!! Form::button('Upload', ['type' => 'submit', 'class' => 'btn btn-default']) !!}
 
     {!! Form::close() !!}

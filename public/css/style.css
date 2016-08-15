@@ -53,3 +53,9 @@ a {
 form #last-name {
     display:none;
 }
+
+/* HELPERS
+-------------------------------------------------- */
+.align-right {
+    text-align: right;
+}

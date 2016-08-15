@@ -42,6 +42,7 @@
             <h4>Full Filename: {{ $photo->filename }}</h4>
             <h4>Uploaded: {{ $photo->created_at->diffForHumans() }}</h4>
             <h4>Gallery: {{ $photo->gallery->name }}</h4>
+            <h4>In Carousel: {{ $photo->carousel == 1 ? "Yes" : "No" }}</h4>
             <p><a href="/photos/{{ $photo->id }}/edit" class="btn btn-primary" role="button">Edit</a></p>
             {!! Form::open(array('method' => 'DELETE',
                 'route' => array('photos.destroy', $photo->id),

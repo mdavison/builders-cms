@@ -18,7 +18,7 @@ class CreateGalleriesTable extends Migration {
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('link_token', 100)->unique();
-			$table->timestamps();
+			$table->nullableTimestamps();
             $table->softDeletes();
 		});
 	}

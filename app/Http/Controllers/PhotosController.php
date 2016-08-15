@@ -97,6 +97,7 @@ class PhotosController extends Controller {
         $photo->type = $filetype;
         $photo->size = $filesize;
         $photo->gallery_id = $request->get('gallery');
+        $photo->carousel = $request->get('carousel') == '1' ? 1 : 0;
         $photo->save();
 
         return redirect('photos')->with('message', 'Photo was uploaded.');
@@ -147,6 +148,7 @@ class PhotosController extends Controller {
 	{
 		$photo = Photo::findOrFail($id);
         $photo->gallery_id = $request->get('gallery');
+        $photo->carousel = $request->get('carousel') == '1' ? 1 : 0;
         $photo->update();
 
         return redirect('photos')->with('message', 'Photo was updated.');

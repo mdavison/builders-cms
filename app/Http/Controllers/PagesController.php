@@ -18,11 +18,7 @@ class PagesController extends Controller {
      */
     public function index()
     {
-        $photos = Photo::whereHas('gallery', function($q)
-        {
-            $q->where('slug', '=', 'carousel');
-
-        })->orderBy('display_order', 'ASC')->get();
+        $photos = Photo::where('carousel', 1)->get();
 
         return view('index', ['photos' => $photos, 'counter' => 0]);
     }

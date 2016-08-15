@@ -21,7 +21,7 @@ class CreatePhotosTable extends Migration {
             $table->integer('gallery_id')->unsigned();
             $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
             $table->integer('display_order')->nullable();
-            $table->timestamps();
+            $table->nullableTimestamps();
             $table->softDeletes();
 		});
 	}
